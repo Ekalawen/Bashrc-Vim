@@ -16,8 +16,8 @@ HISTCONTROL=ignoreboth
 shopt -s histappend
 
 # for setting history length see HISTSIZE and HISTFILESIZE in bash(1)
-HISTSIZE=1000
-HISTFILESIZE=2000
+HISTSIZE=1001
+HISTFILESIZE=2002
 
 # check the window size after each command and, if necessary,
 # update the values of LINES and COLUMNS.
@@ -88,36 +88,50 @@ fi
 #export GCC_COLORS='error=01;31:warning=01;35:note=01;36:caret=01;32:locus=01:quote=01'
 
 # some more ls aliases
-alias ll='ls -rohF'
+#alias ll='ls -alF'
+#alias la='ls -A'
+#alias l='ls -CF'
+alias ll='ls -arohF'
 alias la='ls -ArohF'
-alias lr='ls -RXF'
+alias lr='tree'
 alias l='ls -CF'
 
 alias g='gvim'
 alias gp='g -p'
 alias v='vim'
 alias python='python3'
-# PATH_PRG="$h/Programmation"
-PATH_PRG="/var/www/html/data_test"
+PATH_PRG="$H/"
 alias prg='cd $PATH_PRG'
 alias gcc='gcc -Wall -pedantic'
 alias g++='g++ -Wall -pedantic'
 alias gccSDL='gcc -Wall -pedantic $(sdl-config --cflags --libs)'
 alias g++SDL='g++ -Wall -pedantic $(sdl2-config --cflags --libs)'
-alias brc='g $h/.bashrc'
-alias vrc='g $h/.vimrc'
-alias sourceb='source $h/.bashrc'
+alias brc='g $H/.bashrc'
+alias vrc='g $H/.vimrc'
+alias sourceb='source $H/.bashrc'
 alias sublime='subl'
 
 alias rm='rm -iv --preserve-root'
+alias mv='mv -b'
 alias search='apt-cache search'
 alias install='apt-get install'
 
 alias gs='git status'
 alias gc='git checkout'
+alias gm='git commit -m'
+alias gl='git log --graph --color --format="%C(yellow)%h%Creset %cr %C(blue)%cn%Creset -%C(auto)%d%Creset %s" -n 10'
+alias gla='git log --all --graph --color --name-status --format="%C(yellow)%h%Creset %cr %C(blue)%cn%Creset -%C(auto)%d%Creset %s"'
 alias ga='git add'
+alias gae='ga *'
+alias gd='git diff'
+alias gdc='git diff --cached'
+alias gdl='git diff HEAD~1'
 
-h=$HOME
+alias locate='locate -itbr'
+
+alias du='du -ach'
+
+H=$HOME
 
 # Add an "alert" alias for long running commands.  Use like so:
 #   sleep 10; alert
@@ -142,5 +156,3 @@ if ! shopt -oq posix; then
     . /etc/bash_completion
   fi
 fi
-
-export PATH=/home/ekalawen/bin:/home/ekalawen/.local/bin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/usr/games:/usr/local/games:/snap/bin:/home/ekalawen/.vimpkg/bin
