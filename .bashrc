@@ -100,7 +100,7 @@ alias g='gvim'
 alias gp='g -p'
 alias v='vim'
 alias python='python3'
-PATH_PRG="$H/firstDay/"
+PATH_PRG="$H/"
 alias prg='cd $PATH_PRG'
 alias gcc='gcc -Wall -pedantic'
 alias g++='g++ -Wall -pedantic'
@@ -124,24 +124,11 @@ alias gla='git log --all --graph --color --name-status --format="%C(yellow)%h%Cr
 alias ga='git add'
 alias gae='ga *'
 
-# alias docker='sudo docker'
-
 alias locate='locate -itbr'
 
 alias du='du -ach'
 
-alias da='source $HOME/Documents/FluidTopics/.docker/venv/bin/activate'
-alias rfts='cd $HOME/Documents/FluidTopics/interface/fluid-topics-server && ../gradlew run'
-
-alias ipsecup='sudo systemctl restart docker ; sudo ipsec down mrs ; sudo ipsec up mrs'
-
 H=$HOME
-
-# Add my own directory to path
-export PATH=$PATH:~/Documents/scripts
-
-# Poetry
-export PATH=$PATH:$HOME/.poetry/bin
 
 # Add an "alert" alias for long running commands.  Use like so:
 #   sleep 10; alert
@@ -166,25 +153,3 @@ if ! shopt -oq posix; then
     . /etc/bash_completion
   fi
 fi
-
-# >>> conda initialize >>>
-# !! Contents within this block are managed by 'conda init' !!
-__conda_setup="$('/home/alexis/anaconda3/bin/conda' 'shell.bash' 'hook' 2> /dev/null)"
-if [ $? -eq 0 ]; then
-    eval "$__conda_setup"
-else
-    if [ -f "/home/alexis/anaconda3/etc/profile.d/conda.sh" ]; then
-        . "/home/alexis/anaconda3/etc/profile.d/conda.sh"
-    else
-        export PATH="/home/alexis/anaconda3/bin:$PATH"
-    fi
-fi
-unset __conda_setup
-# <<< conda initialize <<<
-
-# Virtualenv
-workon afs-mining
-
-# AFS-MINING docker algorithms
-export AFS_MINING_ALGORITHMS=transformers_ner
-export DEV=1
