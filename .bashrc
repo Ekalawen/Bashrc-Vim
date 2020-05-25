@@ -123,6 +123,9 @@ alias gl='git log --graph --color --format="%C(yellow)%h%Creset %cr %C(blue)%cn%
 alias gla='git log --all --graph --color --name-status --format="%C(yellow)%h%Creset %cr %C(blue)%cn%Creset -%C(auto)%d%Creset %s"'
 alias ga='git add'
 alias gae='ga *'
+alias gd='git diff'
+alias gdc='git diff --cached'
+alias gdl='git diff HEAD~1'
 
 alias locate='locate -itbr'
 
