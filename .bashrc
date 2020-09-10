@@ -16,8 +16,8 @@ HISTCONTROL=ignoreboth
 shopt -s histappend
 
 # for setting history length see HISTSIZE and HISTFILESIZE in bash(1)
-HISTSIZE=1001
-HISTFILESIZE=2002
+HISTSIZE=10001
+HISTFILESIZE=20002
 
 # check the window size after each command and, if necessary,
 # update the values of LINES and COLUMNS.
@@ -87,6 +87,14 @@ fi
 # colored GCC warnings and errors
 #export GCC_COLORS='error=01;31:warning=01;35:note=01;36:caret=01;32:locus=01:quote=01'
 
+alias ..='cd ..'
+alias ...='cd ../..'
+alias ....='cd ../../..'
+alias .....='cd ../../../..'
+alias ......='cd ../../../../..'
+alias .......='cd ../../../../../..'
+alias ........='cd ../../../../../../..'
+
 # some more ls aliases
 #alias ll='ls -alF'
 #alias la='ls -A'
@@ -96,9 +104,10 @@ alias la='ls -ArohF'
 alias lr='tree'
 alias l='ls -CF'
 
-alias g='gvim'
-alias gp='g -p'
-alias v='vim'
+alias c='cat'
+alias v='gvim'
+alias vp='v -p'
+alias vxml="v -c ':%!xmlstarlet fo'"
 alias python='python3'
 PATH_PRG="$H/"
 alias prg='cd $PATH_PRG'
@@ -106,30 +115,54 @@ alias gcc='gcc -Wall -pedantic'
 alias g++='g++ -Wall -pedantic'
 alias gccSDL='gcc -Wall -pedantic $(sdl-config --cflags --libs)'
 alias g++SDL='g++ -Wall -pedantic $(sdl2-config --cflags --libs)'
-alias brc='g $H/.bashrc'
-alias vrc='g $H/.vimrc'
+alias brc='v $H/.bashrc'
+alias vrc='v $H/.vimrc'
 alias sourceb='source $H/.bashrc'
 alias sublime='subl'
 
 alias rm='rm -iv --preserve-root'
-alias mv='mv -b'
+alias mv='mv -bv'
 alias search='apt-cache search'
 alias install='apt-get install'
 
+alias g='git'
 alias gs='git status'
 alias gc='git checkout'
 alias gm='git commit -m'
+alias gmnv='git commit --no-verify -m'
+alias gca='git commit --amend'
 alias gl='git log --graph --color --format="%C(yellow)%h%Creset %cr %C(blue)%cn%Creset -%C(auto)%d%Creset %s" -n 10'
-alias gla='git log --all --graph --color --name-status --format="%C(yellow)%h%Creset %cr %C(blue)%cn%Creset -%C(auto)%d%Creset %s"'
+alias gla='git log --all --graph --color --format="%C(yellow)%h%Creset %cr %C(blue)%cn%Creset -%C(auto)%d%Creset %s"'
+alias glaa='git log --all --graph --color --name-status --format="%C(yellow)%h%Creset %cr %C(blue)%cn%Creset -%C(auto)%d%Creset %s"'
 alias ga='git add'
-alias gae='ga *'
+alias gap='ga -p'
+alias gae='ga .'
 alias gd='git diff'
 alias gdc='git diff --cached'
 alias gdl='git diff HEAD~1'
+alias gdw='git diff --color-words'
+alias gdcw='git diff --cached --color-words'
+alias gdlw='git diff HEAD~1 --color-words'
+alias grc='git rm --cached -r'
 
 alias locate='locate -itbr'
 
+alias ip='ip -c'
+
 alias du='du -ach'
+
+alias tarc='tar -czvf'
+alias tarx='tar -xzvf'
+alias tart='tar -tzvf'
+
+alias rsync='rsync -avz --progress --info=progress2'
+
+alias da='source $HOME/Documents/FluidTopics/.docker/venv/bin/activate'
+alias rfts='cd $HOME/Documents/FluidTopics/interface/fluid-topics-server && ../gradlew run'
+
+alias notify='notify-send "Done ! :)" ; aplay /usr/share/sounds/sound-icons/beginning-of-line'
+
+alias ipsecup='sudo systemctl restart docker ; sudo ipsec down mrs ; sudo ipsec up mrs'
 
 H=$HOME
 
@@ -156,3 +189,6 @@ if ! shopt -oq posix; then
     . /etc/bash_completion
   fi
 fi
+
+# Go to venv
+workon my_env
