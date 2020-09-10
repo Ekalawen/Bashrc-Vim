@@ -160,7 +160,7 @@ alias rsync='rsync -avz --progress --info=progress2'
 alias da='source $HOME/Documents/FluidTopics/.docker/venv/bin/activate'
 alias rfts='cd $HOME/Documents/FluidTopics/interface/fluid-topics-server && ../gradlew run'
 
-alias notify='notify-send "Done ! :)" ; aplay /usr/share/sounds/sound-icons/beginning-of-line'
+alias notify='notify-send "Done ! :)" ; aplay -q /usr/share/sounds/sound-icons/beginning-of-line'
 
 alias ipsecup='sudo systemctl restart docker ; sudo ipsec down mrs ; sudo ipsec up mrs'
 
