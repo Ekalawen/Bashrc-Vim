@@ -108,6 +108,7 @@ alias c='cat'
 alias v='gvim'
 alias vp='v -p'
 alias vxml="v -c ':%!xmlstarlet fo'"
+alias vjson="v -c ':%!python -m json.tool'"
 alias python='python3'
 PATH_PRG="$H/"
 alias prg='cd $PATH_PRG'
@@ -125,12 +126,15 @@ alias mv='mv -bv'
 alias search='apt-cache search'
 alias install='apt-get install'
 
-alias g='git'
+alias git='LANG=en_GB git'
 alias gs='git status'
 alias gc='git checkout'
 alias gm='git commit -m'
 alias gmnv='git commit --no-verify -m'
 alias gca='git commit --amend'
+alias gcf='git commit --fixup'
+alias gcb='git checkout -b'
+alias gb='git branch'
 alias gl='git log --graph --color --format="%C(yellow)%h%Creset %cr %C(blue)%cn%Creset -%C(auto)%d%Creset %s" -n 10'
 alias gla='git log --all --graph --color --format="%C(yellow)%h%Creset %cr %C(blue)%cn%Creset -%C(auto)%d%Creset %s"'
 alias glaa='git log --all --graph --color --name-status --format="%C(yellow)%h%Creset %cr %C(blue)%cn%Creset -%C(auto)%d%Creset %s"'
@@ -143,7 +147,11 @@ alias gdl='git diff HEAD~1'
 alias gdw='git diff --color-words'
 alias gdcw='git diff --cached --color-words'
 alias gdlw='git diff HEAD~1 --color-words'
-alias grc='git rm --cached -r'
+alias gri='git rebase -i'
+alias grc='git rebase --continue'
+alias gria='git rebase -i --autosquash'
+alias gp='git push'
+alias gpfwl='git push --force-with-lease' a	
 
 alias locate='locate -itbr'
 
@@ -165,6 +173,9 @@ alias notify='notify-send "Done ! :)" ; aplay -q /usr/share/sounds/sound-icons/b
 alias ipsecup='sudo systemctl restart docker ; sudo ipsec down mrs ; sudo ipsec up mrs'
 
 H=$HOME
+
+# Add my own directory to path
+export PATH=$PATH:~/Documents/scripts
 
 # Add an "alert" alias for long running commands.  Use like so:
 #   sleep 10; alert
