@@ -140,7 +140,7 @@ alias gla='git log --all --graph --color --format="%C(yellow)%h%Creset %cr %C(bl
 alias glaa='git log --all --graph --color --name-status --format="%C(yellow)%h%Creset %cr %C(blue)%cn%Creset -%C(auto)%d%Creset %s"'
 alias ga='git add'
 alias gap='ga -p'
-alias gae='ga .'
+alias gae='ga *'
 alias gd='git diff'
 alias gdc='git diff --cached'
 alias gdl='git diff HEAD~1'
@@ -150,6 +150,7 @@ alias gdlw='git diff HEAD~1 --color-words'
 alias gri='git rebase -i'
 alias grc='git rebase --continue'
 alias gria='git rebase -i --autosquash'
+alias gre="git restore '*'"
 alias gp='git push'
 alias gpfwl='git push --force-with-lease' a	
 
